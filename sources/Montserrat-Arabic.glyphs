@@ -192086,65 +192086,6 @@ instances = (
 {
 customParameters = (
 {
-name = "Update Features";
-value = 1;
-}
-);
-interpolationWeight = 20;
-interpolationWidth = 0;
-instanceInterpolations = {
-UUID0 = 1;
-};
-name = Thin;
-weightClass = Thin;
-},
-{
-customParameters = (
-{
-name = InterpolationWeightY;
-value = 44;
-},
-{
-name = weightClass;
-value = 275;
-},
-{
-name = "Update Features";
-value = 1;
-}
-);
-interpolationWeight = 40;
-interpolationWidth = 0;
-instanceInterpolations = {
-"1C84A7F3-C40A-4DC1-B8B4-102D183C348F" = "{0.22222, 0.26667}";
-UUID0 = "{0.77778, 0.73333}";
-};
-name = ExtraLight;
-weightClass = ExtraLight;
-},
-{
-customParameters = (
-{
-name = InterpolationWeightY;
-value = 80;
-},
-{
-name = "Update Features";
-value = 1;
-}
-);
-interpolationWeight = 75;
-interpolationWidth = 0;
-instanceInterpolations = {
-"1C84A7F3-C40A-4DC1-B8B4-102D183C348F" = "{0.61111, 0.66667}";
-UUID0 = "{0.38889, 0.33333}";
-};
-name = Light;
-weightClass = Light;
-},
-{
-customParameters = (
-{
 name = InterpolationWeightY;
 value = 117;
 },
@@ -192222,37 +192163,6 @@ isBold = 1;
 linkStyle = Regular;
 name = Bold;
 weightClass = Bold;
-},
-{
-customParameters = (
-{
-name = "Update Features";
-value = 1;
-}
-);
-interpolationWeight = 193;
-interpolationWidth = 0;
-instanceInterpolations = {
-"1C84A7F3-C40A-4DC1-B8B4-102D183C348F" = 0.20952;
-"5DA6E103-6A94-47F2-987D-4952DB8EA68E" = 0.79048;
-};
-name = ExtraBold;
-weightClass = ExtraBold;
-},
-{
-customParameters = (
-{
-name = "Update Features";
-value = 1;
-}
-);
-interpolationWeight = 215;
-interpolationWidth = 0;
-instanceInterpolations = {
-"5DA6E103-6A94-47F2-987D-4952DB8EA68E" = 1;
-};
-name = Black;
-weightClass = Black;
 },
 {
 exports = 0;
