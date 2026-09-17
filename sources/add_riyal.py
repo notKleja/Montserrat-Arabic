@@ -36,12 +36,16 @@ if is_cff:
     cff = f["CFF "].cff; td = cff.topDictIndex[0]; cs = td.CharStrings
     pen = T2CharStringPen(adv, None); src.replay(pen)
     ch = pen.getCharString(private=td.Private, globalSubrs=cff.GlobalSubrs)
-    go = f.getGlyphOrder() + [NAME]; f.setGlyphOrder(go); td.charset.append(NAME)
-    cs.charStrings[NAME] = len(cs.charStringsIndex); cs.charStringsIndex.append(ch)
+    if NAME in cs:
+        cs.charStringsIndex[cs.charStrings[NAME]] = ch
+    else:
+        go = f.getGlyphOrder() + [NAME]; f.setGlyphOrder(go); td.charset.append(NAME)
+        cs.charStrings[NAME] = len(cs.charStringsIndex); cs.charStringsIndex.append(ch)
     bp = BoundsPen(None); src.replay(bp); f["hmtx"][NAME] = (adv, round(bp.bounds[0]))
 else:
     pen = TTGlyphPen(None); src.replay(Cu2QuPen(pen, 1.0)); g = pen.glyph()
-    go = f.getGlyphOrder() + [NAME]; f.setGlyphOrder(go)
+    if NAME not in f.getGlyphOrder():
+        go = f.getGlyphOrder() + [NAME]; f.setGlyphOrder(go)
     g.recalcBounds(f["glyf"]); f["glyf"][NAME] = g; f["hmtx"][NAME] = (adv, g.xMin)
     f["maxp"].recalc(f)
 
