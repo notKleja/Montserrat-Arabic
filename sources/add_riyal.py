@@ -10,14 +10,15 @@ from fontTools.pens.cu2quPen import Cu2QuPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.areaPen import AreaPen
 
-SVG, FONT, OUT, HEIGHT, SB = sys.argv[1], sys.argv[2], sys.argv[3], 700, 50
+SVG, FONT, OUT, SB = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4])
+SCALE, TOP = 1000 / 12, 700   # SVGs drawn at 12px: 1 svg unit = 1px; top aligned to digit height
 NAME, CP = "uni20C1", 0x20C1
 
 svg = SVGPath(SVG)
 b = BoundsPen(None); svg.draw(b); x0, y0, x1, y1 = b.bounds
-s = HEIGHT / (y1 - y0)
+s = SCALE
 width = round((x1 - x0) * s)
-tf = (s, 0, 0, -s, -x0 * s + SB, y1 * s)   # flip y, bottom on baseline, left sidebearing SB
+tf = (s, 0, 0, -s, -x0 * s + SB, TOP + y0 * s)   # flip y, top of symbol at TOP, left sidebearing SB
 
 rec = RecordingPen(); svg.draw(TransformPen(rec, tf))
 ap = AreaPen(); rec.replay(ap)
